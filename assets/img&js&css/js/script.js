@@ -57,6 +57,17 @@ function toggleDarkMode() {
   
   // Event listener for the button to toggle dark mode
   document.querySelector('#darkModeToggle').addEventListener('click', toggleDarkMode);
+
+window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
+    const scrollPosition = window.scrollY;
+
+    if (scrollPosition > 0) {
+        navbar.classList.add('fixed');
+    } else {
+        navbar.classList.remove('fixed');
+    }
+});
   
 
 const hamburger = document.querySelector('.hamburger');
