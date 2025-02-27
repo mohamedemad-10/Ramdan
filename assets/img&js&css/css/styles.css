@@ -1,0 +1,2334 @@
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@600;700&family=Open+Sans:wght@400;600&display=swap');
+
+/* Reset Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base Styles */
+body,
+html {
+  scroll-behavior: smooth;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  transition: background 0.3s, color 0.3s;
+  font-family: 'Open Sans', sans-serif;
+  background: linear-gradient(135deg, #fdfdfd 0%, #eef2f3 100%);
+  color: #2d3436;
+}
+
+/* Dark Mode Body */
+body.dark-mode {
+  background: linear-gradient(135deg, #212529 0%, #343a40 100%);
+  color: #dee2e6;
+}
+/* Loader Container */
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #00c4cc 0%, #ff9f1c 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 9999;
+  transition: opacity 0.5s ease;
+}
+
+/* Loader Hidden State */
+.loader.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Crescent Moon Animation */
+.moon {
+  width: 100px;
+  height: 100px;
+  background: #ffffff;
+  border-radius: 50%;
+  position: relative;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.moon::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 30px;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #00c4cc 0%, #ff9f1c 100%);
+  border-radius: 50%;
+  animation: crescent 2s infinite ease-in-out;
+}
+
+/* Loading Text */
+.loader-text {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  color: #ffffff;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  animation: fadeText 1.5s infinite;
+}
+
+/* Pulse Animation for Moon */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Crescent Animation */
+@keyframes crescent {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(10px); }
+}
+
+/* Fade Text Animation */
+@keyframes fadeText {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.spinner .spin-star {
+  font-size: 3rem;
+  color: #ffd700;
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+/* Navbar Styles */
+.navbar {
+  width: 100%;
+  height: 80px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 111;
+  padding: 0 20px;
+  transition: all 0.3s ease;
+}
+
+/* Navbar Logo */
+.navbar .logo {
+  font-size: 1.6em;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  color: #00c4cc;
+  transition: all 0.3s ease;
+}
+
+/* Navbar Logo Hover */
+.navbar .logo:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+/* Navbar Links */
+.navbar .nav-links {
+  display: flex;
+  gap: 25px;
+  transition: all 0.3s ease;
+}
+
+/* Navbar Link Styles */
+.navbar .nav-links a {
+  color: #00c4cc;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+/* Navbar Link Hover */
+.navbar .nav-links a:hover {
+  color: #ffffff;
+  background-color: #ff9f1c;
+  transform: scale(1.05);
+}
+
+/* Navbar Link Active */
+.navbar .nav-links a:active {
+  color: #ffffff;
+  background-color: #ffb107;
+}
+
+/* Navbar Actions */
+.navbar .actions i {
+  font-size: 25px;
+  cursor: pointer;
+  color: #00c4cc;
+  background: none;
+  border: none;
+}
+
+/* Dark Mode Navbar */
+.navbar.dark-mode {
+  background-color: #343a40;
+}
+
+/* Dark Mode Logo */
+.navbar.dark-mode .logo {
+  color: #17c4cc;
+}
+
+/* Dark Mode Nav Links */
+.navbar.dark-mode .nav-links a {
+  color: #17c4cc;
+}
+
+/* Dark Mode Nav Link Hover */
+.navbar.dark-mode .nav-links a:hover {
+  color: #212529;
+  background-color: #ffb107;
+}
+
+/* Dark Mode Nav Link Active */
+.navbar.dark-mode .nav-links a:active {
+  background-color: #ff9f1c;
+}
+
+/* Dark Mode Actions */
+.navbar.dark-mode .actions i {
+  color: #17c4cc;
+}
+
+/* Hamburger Menu */
+.navbar .hamburger {
+  display: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #00c4cc;
+}
+
+/* Dark Mode Hamburger */
+.navbar.dark-mode .hamburger {
+  color: #17c4cc;
+}
+
+/* Media Query: Navbar (max-width: 800px) */
+@media (max-width: 800px) {
+  .navbar {
+    padding: 10px;
+    justify-content: space-around;
+  }
+
+  .navbar .nav-links {
+    display: none;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    z-index: 100;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .navbar .nav-links.open {
+    display: flex;
+    transform: translateY(0);
+  }
+
+  .navbar .nav-links a {
+    font-size: 20px;
+    padding: 15px;
+    width: 80%;
+    text-align: center;
+    background-color: #eef2f3;
+    margin: 5px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .navbar .nav-links a:hover {
+    background-color: #ff9f1c;
+    color: #ffffff;
+    transform: translateY(-3px);
+  }
+
+  .navbar .nav-links a:active {
+    background-color: #ffb107;
+    transform: translateY(0);
+  }
+
+  .navbar.dark-mode .nav-links {
+    background-color: #343a40;
+  }
+
+  .navbar.dark-mode .nav-links a {
+    background-color: #2e353b;
+    color: #17c4cc;
+  }
+
+  .navbar.dark-mode .nav-links a:hover {
+    background-color: #ffb107;
+    color: #212529;
+  }
+
+  .navbar .hamburger {
+    display: block;
+  }
+}
+
+@media (max-width: 460px){
+   .navbar .logo{
+    font-size: 1.2em;
+   }
+}
+
+/* Hero Section */
+.hero {
+  width: 100%;
+  height: 110vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: url('../img/bg.png') no-repeat center center;
+  background-size: cover;
+  color: #ffffff;
+  padding: 20px 50px;
+  position: relative;
+  animation: fadeIn 1.5s ease-out;
+}
+
+/* Hero Content */
+.hero .content {
+  max-width: 500px;
+  text-align: left;
+}
+
+/* Hero Heading */
+.hero h1 {
+  font-size: 3rem;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #ffffff;
+  animation: slideInLeft 1s ease-out;
+}
+
+/* Hero Paragraph */
+.hero p {
+  font-size: 1.2rem;
+  line-height: 1.5em;
+  font-family: 'Open Sans', sans-serif;
+  color: #ff9f1c;
+  margin-bottom: 20px;
+  animation: slideInLeft 1s ease-out;
+}
+
+/* Hero Button */
+.hero button {
+  padding: 15px 30px;
+  font-size: 16px;
+  background-color: #00c4cc;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  transition: all 0.4s linear;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Hero Button Hover */
+.hero button:hover {
+  background-color: #ff9f1c;
+}
+
+.balloon {
+  position: absolute;
+  width: 50px;
+  height: 70px;
+  background-color: red;
+  border-radius: 50%;
+  animation: float 3s ease-in-out infinite;
+  display: none; /* Hidden by default */
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-100px); }
+  100% { transform: translateY(0); }
+}
+
+/* Modal Background */
+#name-prompt {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  text-align: center;
+}
+
+/* Modal Heading */
+.modal-content h2 {
+  margin: 0 0 15px 0;
+  font-family: Arial, sans-serif;
+  color: #333;
+  font-size: 24px;
+}
+
+/* Modal Input */
+#user-name-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+/* Modal Input Placeholder */
+#user-name-input::placeholder {
+  color: #999;
+}
+
+/* Modal Input Focus */
+#user-name-input:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+/* Modal Button */
+.modal-content button {
+  background-color: #007BFF;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Modal Button Hover */
+.modal-content button:hover {
+  background-color: #0056b3;
+}
+
+/* Modal Button Active */
+.modal-content button:active {
+  background-color: #004085;
+}
+
+/* Dark Mode Hero */
+.hero.dark-mode {
+  color: #dee2e6;
+}
+
+/* Dark Mode Hero Heading */
+.hero.dark-mode .content h1 {
+  color: #17c4cc;
+}
+
+/* Dark Mode Hero Paragraph */
+.hero.dark-mode .content p {
+  color: #ffb107;
+}
+
+/* Dark Mode Hero Button */
+.hero.dark-mode button {
+  background-color: #17c4cc;
+}
+
+/* Dark Mode Hero Button Hover */
+.hero.dark-mode button:hover {
+  background-color: #ffb107;
+}
+
+/* FadeIn Animation */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* SlideInLeft Animation */
+@keyframes slideInLeft {
+  0% { transform: translateX(-100%); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 20%;
+  background: linear-gradient(135deg, #fdfdfd 0%, #eef2f3 100%);
+  padding: 20px;
+  border-radius: 10px;
+  animation: fadeIn 1s ease-out;
+}
+
+/* Dark Mode Sidebar */
+.sidebar.dark-mode {
+  background: #263238;
+  color: #dee2e6;
+}
+
+/* Sidebar Top Image */
+.sidebar .top-img {
+  background: url('../img/side-bar.jpg') no-repeat center center;
+  background-size: cover;
+  height: 200px;
+  border-radius: 10px;
+  filter: blur(2px);
+  cursor: pointer;
+  transition: filter 0.5s;
+}
+
+/* Sidebar Top Image Hover */
+.sidebar .top-img:hover {
+  filter: blur(0);
+}
+
+/* Sidebar Timer */
+.sidebar .timer {
+  background-color: #00c4cc;
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  border-radius: 5px;
+  color: #ffffff;
+  animation: slideInRight 1s ease-out;
+}
+
+/* Sidebar Timer Paragraph */
+.sidebar .timer p {
+  color: #fff;
+}
+
+/* Dark Mode Sidebar Timer */
+.sidebar.dark-mode .timer {
+  background-color: #17c4cc;
+}
+
+/* Dark Mode Sidebar Timer Paragraph */
+.sidebar.dark-mode .timer p {
+  color: #000;
+}
+
+/* Sidebar Ramadan Greeting */
+.sidebar .ramadan-greeting {
+  margin-top: 20px;
+  font-size: 18px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  text-align: center;
+  background-color: #80deea;
+  opacity: 0;
+  color: #000;
+  transform: translateY(30px);
+  animation: fadeInUpInfinite 3s ease-in-out infinite;
+  transition: color 0.3s ease;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Sidebar Ramadan Greeting Paragraph */
+.sidebar .ramadan-greeting p {
+  color: #000;
+}
+
+/* Dark Mode Sidebar Ramadan Greeting */
+.sidebar.dark-mode .ramadan-greeting {
+  background-color: #ffb107;
+  color: #212529;
+}
+
+/* Sidebar Ramadan Greeting Hover */
+.sidebar .ramadan-greeting:hover {
+  color: #ff9f1c;
+  transform: translateY(-5px);
+}
+
+/* Dark Mode Sidebar Ramadan Greeting Hover */
+.sidebar.dark-mode .ramadan-greeting:hover {
+  color: #ff9f1c;
+}
+
+/* FadeInUpInfinite Animation */
+@keyframes fadeInUpInfinite {
+  0% { opacity: 0; transform: translateY(30px); }
+  50% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(30px); }
+}
+
+/* Media Query: Sidebar (max-width: 1025px) */
+@media (max-width: 1025px) {
+  .sidebar {
+    width: 30%;
+  }
+}
+
+/* Media Query: Hero & Sidebar (max-width: 900px) */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    height: auto;
+    padding: 20px 30px;
+    gap: 40px;
+  }
+
+  .sidebar {
+    width: 80%;
+    margin-top: 20px;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .hero .content {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero button {
+    font-size: 14px;
+    padding: 12px 24px;
+  }
+
+  .sidebar .top-img {
+    height: 300px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .sidebar .timer {
+    font-size: 18px;
+    padding: 8px;
+  }
+}
+
+/* Media Query: Hero & Sidebar (max-width: 480px) */
+@media (max-width: 480px) {
+  .hero {
+    padding: 15px;
+  }
+
+  .sidebar {
+    padding: 10px;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
+
+  .hero button {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+
+  .sidebar .top-img {
+    height: 120px;
+    max-width: 200px;
+  }
+
+  .sidebar .timer {
+    font-size: 16px;
+    padding: 6px;
+  }
+
+  .sidebar .ramadan-greeting {
+    font-size: 14px;
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* About Section */
+.about {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #fdfdfd 0%, #eef2f3 100%);
+  gap: 40px;
+  padding: 60px 50px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* About Appear Animation */
+.about.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* About Section Header */
+.about .section-header h2,
+.about h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: 'Lato', sans-serif;
+  margin-bottom: 15px;
+  color: #00c4cc;
+}
+
+/* About Subheading */
+.about h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-top: 20px;
+  color: #2d3436;
+  font-family: 'Lato', sans-serif;
+}
+
+/* About Paragraph */
+.about p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #6c757d;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* About Text */
+.about .about-text {
+  width: 60%;
+}
+
+/* About Image Container */
+.about .about-img {
+  width: 40%;
+}
+
+/* About Image */
+.about-img img {
+  width: 100%;
+  height: 300px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.5s ease, filter 0.3s ease;
+}
+
+/* About Image Hover */
+.about-img img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+/* Dark Mode About */
+.about.dark-mode {
+  background: #263238;
+  color: #dee2e6;
+}
+
+/* Dark Mode About Heading */
+.about.dark-mode h2,
+.about.dark-mode .section-header h2 {
+  color: #17c4cc;
+}
+
+/* Dark Mode About Subheading */
+.about.dark-mode h3 {
+  color: #b2bec4;
+}
+
+/* Dark Mode About Paragraph */
+.about.dark-mode p {
+  color: #6c757d;
+}
+
+/* Media Query: About (max-width: 768px) */
+@media (max-width: 768px) {
+  .about {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .about .about-text {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .about .about-img {
+    width: 100%;
+  }
+
+  .about-img img {
+    height: auto;
+  }
+}
+
+/* Prayer Times Section */
+.prayer-times {
+  width: 100%;
+  background: linear-gradient(135deg, #fdfdfd 0%, #eef2f3 100%);
+  padding: 70px 50px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease-out, transform 1s ease-out, background 0.3s ease;
+}
+
+/* Prayer Times Appear Animation */
+.prayer-times.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Prayer Times Section Header */
+.prayer-times .section-header {
+  text-align: center;
+  margin: 30px 0;
+  padding: 20px;
+  color: #00c4cc;
+}
+
+/* Prayer Times Heading */
+.prayer-times .section-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: 'Lato', sans-serif;
+  color: #00c4cc;
+}
+
+/* Prayer Times Table Container */
+.prayer-times .table-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Prayer Table */
+.prayer-table {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  border-radius: 10px;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s ease-in-out, background-color 0.3s ease;
+}
+
+/* Prayer Table Cells */
+.prayer-table th,
+.prayer-table td {
+  padding: 14px 18px;
+  text-align: center;
+  font-size: 1.1em;
+  font-weight: 600;
+  font-family: 'Open Sans', sans-serif;
+  color: #2d3436;
+}
+
+/* Prayer Table Header */
+.prayer-table th {
+  background-color: #00c4cc;
+  color: #ffffff;
+  transition: all 0.7s ease;
+  cursor: pointer;
+}
+
+/* Prayer Table Odd Rows */
+.prayer-table tr:nth-child(odd) td {
+  background-color: #fdfdfd;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+/* Prayer Table Even Rows */
+.prayer-table tr:nth-child(even) td {
+  background-color: #eef2f3;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+/* Prayer Table Row Hover */
+.prayer-table tr:hover td {
+  background-color: #80deea;
+}
+
+/* Prayer Table Cell Border */
+.prayer-table td {
+  border-bottom: 1px solid #b2bec4;
+}
+
+/* Prayer Table Last Row */
+.prayer-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Prayer Times Navigation */
+.navigation {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* Prayer Times Navigation Button */
+.prayer-times .navigation button {
+  padding: 12px 24px;
+  font-size: 1.1em;
+  color: #ffffff;
+  background-color: #00c4cc;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Prayer Times Navigation Button Hover */
+.prayer-times .navigation button:hover {
+  background-color: #ff9f1c;
+  transform: scale(1.05);
+}
+
+/* Prayer Times Navigation Button Active */
+.prayer-times .navigation button:active {
+  transform: scale(0.95);
+}
+
+/* Dark Mode Prayer Times */
+.dark-mode .prayer-times {
+  background: #374151;
+}
+
+/* Dark Mode Prayer Times Header */
+.dark-mode .prayer-times .section-header {
+  color: #dee2e6;
+}
+
+/* Dark Mode Prayer Times Heading */
+.dark-mode .prayer-times .section-header h2 {
+  color: #17c4cc;
+}
+
+/* Dark Mode Prayer Table */
+.dark-mode .prayer-table {
+  background-color: #343a40;
+}
+
+/* Dark Mode Prayer Table Cells */
+.dark-mode .prayer-table th,
+.dark-mode .prayer-table td {
+  color: #dee2e6;
+}
+
+/* Dark Mode Prayer Table Header */
+.dark-mode .prayer-table th {
+  background-color: #17c4cc;
+}
+
+/* Dark Mode Prayer Table Odd Rows */
+.dark-mode .prayer-table tr:nth-child(odd) td {
+  background-color: #2e353b;
+}
+
+/* Dark Mode Prayer Table Even Rows */
+.dark-mode .prayer-table tr:nth-child(even) td {
+  background-color: #343a40;
+}
+
+/* Dark Mode Prayer Table Row Hover */
+.dark-mode .prayer-table tr:hover td {
+  background-color: #ffb107;
+}
+
+/* Dark Mode Prayer Times Navigation Button */
+.dark-mode .prayer-times .navigation button {
+  background-color: #17c4cc;
+}
+
+/* Dark Mode Prayer Times Navigation Button Hover */
+.dark-mode .prayer-times .navigation button:hover {
+  background-color: #ffb107;
+}
+
+/* Media Query: Prayer Times (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .prayer-times {
+    padding: 50px 30px;
+  }
+
+  .prayer-table {
+    max-width: 100%;
+  }
+}
+
+/* Media Query: Prayer Times (max-width: 768px) */
+@media (max-width: 768px) {
+  .prayer-times {
+    padding: 40px 20px;
+  }
+
+  .prayer-table th,
+  .prayer-table td {
+    padding: 12px 14px;
+    font-size: 1em;
+  }
+
+  .prayer-times .section-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .prayer-times .navigation button {
+    padding: 10px 20px;
+    font-size: 1em;
+  }
+}
+
+/* Media Query: Prayer Times (max-width: 480px) */
+@media (max-width: 480px) {
+  .prayer-times {
+    padding: 30px 15px;
+  }
+
+  .prayer-table {
+    font-size: 0.9em;
+  }
+
+  .prayer-table th,
+  .prayer-table td {
+    padding: 10px 12px;
+    font-size: 0.9em;
+  }
+
+  .prayer-times .section-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .prayer-times .navigation button {
+    padding: 8px 16px;
+    font-size: 0.9em;
+  }
+}
+
+/* Media Query: Prayer Times (max-width: 378px) */
+@media (max-width: 378px) {
+  .prayer-table th,
+  .prayer-table td {
+    padding: 8px 10px;
+    font-size: 0.76em;
+  }
+
+  .prayer-times .navigation button {
+    padding: 6px 12px;
+    font-size: 0.85em;
+  }
+}
+
+/* Daily Advice Section */
+.daily-advice {
+  width: 100%;
+  background: linear-gradient(135deg, #fdfdfd 0%, #eef2f3 100%);
+  color: #2d3436;
+  padding: 60px 40px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Daily Advice Header */
+.daily-advice .section-header {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2em;
+  font-weight: 700;
+  font-family: 'Lato', sans-serif;
+  color: #00c4cc;
+}
+
+/* Daily Advice Content */
+.daily-advice .advice-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Daily Advice Image */
+.daily-advice .advice-content img {
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Daily Advice Paragraph */
+.daily-advice .advice-content p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  text-align: center;
+  color: #6c757d;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Dark Mode Daily Advice */
+.dark-mode .daily-advice {
+  background: #263238;
+  color: #dee2e6;
+}
+
+/* Dark Mode Daily Advice Header */
+.dark-mode .daily-advice .section-header {
+  color: #17c4cc;
+}
+
+/* Dark Mode Daily Advice Paragraph */
+.dark-mode .daily-advice .advice-content p {
+  color: #6c757d;
+}
+
+/* Dark Mode Daily Advice Image */
+.dark-mode .daily-advice .advice-content img {
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+}
+
+/* Message to Friend Section */
+.message-to-friend {
+  width: 100%;
+  background: linear-gradient(135deg, #fdfdfd 0%, #eef2f3 100%);
+  color: #2d3436;
+  padding: 50px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Message to Friend Heading */
+.message-to-friend .section-header h2 {
+  font-size: 2.5em;
+  font-weight: 700;
+  font-family: 'Lato', sans-serif;
+  color: #00c4cc;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Message to Friend Form */
+.message-to-friend .form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+/* Message to Friend Inputs */
+.message-to-friend .form-container input,
+.message-to-friend .form-container button {
+  padding: 12px 18px;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #2d3436;
+  border: 1px solid #b2bec4;
+  font-size: 18px;
+  width: 100%;
+  max-width: 350px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Message to Friend Input/Button Focus */
+.message-to-friend .form-container input:focus,
+.message-to-friend .form-container button:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 196, 204, 0.8);
+}
+
+/* Message to Friend Button Hover */
+.message-to-friend .form-container button:hover {
+  background-color: #ff9f1c;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+/* Generated Message */
+#generated-message {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 1.25rem;
+  color: #6c757d;
+  line-height: 30px;
+  padding: 20px;
+  border: 1px solid #b2bec4;
+  border-radius: 5px;
+  background-color: #ffffff;
+  display: none;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: opacity 0.5s ease;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Dark Mode Message to Friend */
+.dark-mode .message-to-friend {
+  background: #374151;
+  color: #dee2e6;
+}
+
+/* Dark Mode Message to Friend Heading */
+.dark-mode .message-to-friend .section-header h2 {
+  color: #17c4cc;
+}
+
+/* Dark Mode Message to Friend Inputs */
+.dark-mode .message-to-friend .form-container input,
+.dark-mode .message-to-friend .form-container button {
+  color: #dee2e6;
+  border: 1px solid #6c757d;
+}
+
+/* Dark Mode Message to Friend Button Hover */
+.dark-mode .message-to-friend .form-container button:hover {
+  background-color: #ffb107;
+}
+
+/* Dark Mode Generated Message */
+.dark-mode #generated-message {
+  background-color: #343a40;
+  border: 1px solid #6c757d;
+  color: #6c757d;
+}
+
+/* Media Query: Message to Friend (max-width: 768px) */
+@media (max-width: 768px) {
+  .message-to-friend {
+    padding: 30px 20px;
+  }
+
+  .message-to-friend .form-container input,
+  .message-to-friend .form-container button {
+    max-width: 100%;
+  }
+}
+
+/* What Should You Do Section */
+.what-should-you-do {
+  width: 100%;
+  background: linear-gradient(135deg, #fdfdfd 0%, #eef2f3 100%);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 70px 50px;
+  text-align: center;
+}
+
+/* Display Normal */
+.display-normal {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* Quran Image */
+#quran-image {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Quran Image Hover */
+#quran-image:hover {
+  transform: scale(1.05);
+}
+
+/* Section Header */
+.section-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: 'Lato', sans-serif;
+  margin-bottom: 40px;
+  color: #00c4cc;
+}
+
+/* Navigation Buttons */
+.navigation button {
+  background-color: #00c4cc;
+  color: #ffffff;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+/* Navigation Button Hover */
+.navigation button:hover {
+  background-color: #ff9f1c;
+  transform: scale(1.05);
+}
+
+/* Navigation Button Disabled */
+.navigation button:disabled {
+  background-color: #b2bec4;
+  cursor: not-allowed;
+}
+
+/* Navigation Button Active */
+.navigation button:active {
+  transform: scale(0.95);
+}
+
+/* Dark Mode What Should You Do */
+.dark-mode .what-should-you-do {
+  background: #263238;
+  color: #dee2e6;
+}
+
+/* Dark Mode Section Header */
+.dark-mode .section-header h2 {
+  color: #17c4cc;
+}
+
+/* Dark Mode Quran Image */
+.dark-mode #quran-image {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Dark Mode Navigation Button */
+.dark-mode .navigation button {
+  background-color: #17c4cc;
+}
+
+/* Dark Mode Navigation Button Hover */
+.dark-mode .navigation button:hover {
+  background-color: #ffb107;
+}
+
+/* Dark Mode Navigation Button Disabled */
+.dark-mode .navigation button:disabled {
+  background-color: #6c757d;
+}
+
+/* Media Query: What Should You Do (max-width: 768px) */
+@media (max-width: 768px) {
+  .display-normal {
+    gap: 15px;
+  }
+
+  #quran-image {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .navigation button {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .section-header h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Media Query: What Should You Do (max-width: 480px) */
+@media (max-width: 480px) {
+  .section-header h2 {
+    font-size: 1.2rem;
+  }
+
+  .navigation button {
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+}
+
+/* To-Do List Section */
+.to-do-list {
+  width: 100%;
+  background: linear-gradient(135deg, #fdfdfd 0%, #eef2f3 100%);
+  color: #2d3436;
+  padding: 60px 40px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* To-Do List Heading */
+.to-do-list .section-header h1 {
+  margin-bottom: 20px;
+  font-size: 2.5em;
+  font-weight: 700;
+  font-family: 'Lato', sans-serif;
+  color: #00c4cc;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* Button Styles */
+.button {
+  position: relative;
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border: 1px solid #00c4cc;
+  background-color: #1cd2ff;
+}
+
+/* Button Transitions */
+.button,
+.button__icon,
+.button__text {
+  transition: all 0.3s;
+}
+
+/* Button Text */
+.button .button__text {
+  transform: translateX(30px);
+  color: #ffffff;
+  font-weight: 600;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Button Icon */
+.button .button__icon {
+  position: absolute;
+  transform: translateX(109px);
+  height: 100%;
+  width: 39px;
+  background-color: #00c4cc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Button SVG */
+.button .svg {
+  width: 30px;
+  stroke: #ffffff;
+}
+
+/* Button Hover */
+.button:hover {
+  background: #00c4cc;
+}
+
+/* Button Text Hover */
+.button:hover .button__text {
+  color: transparent;
+}
+
+/* Button Icon Hover */
+.button:hover .button__icon {
+  width: 148px;
+  transform: translateX(0);
+}
+
+/* Button Active Icon */
+.button:active .button__icon {
+  background-color: #ffb107;
+}
+
+/* Button Active */
+.button:active {
+  border: 1px solid #ffb107;
+}
+
+/* To-Do List Form */
+.to-do-list form {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Input Container */
+.input-container {
+  position: relative;
+  margin: 50px auto;
+  width: 200px;
+}
+
+/* Input Text */
+.input-container input[type="text"] {
+  font-size: 20px;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #b2bec4;
+  padding: 5px 0;
+  background-color: transparent;
+  outline: none;
+  font-family: 'Open Sans', sans-serif;
+  color: #2d3436;
+}
+
+/* Input Label */
+.input-container .label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #b2bec4;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+/* Input Focus/Valid Label */
+.input-container input[type="text"]:focus ~ .label,
+.input-container input[type="text"]:valid ~ .label {
+  top: -20px;
+  font-size: 16px;
+  color: #00c4cc;
+}
+
+/* Input Underline */
+.input-container .underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #00c4cc;
+  transform: scaleX(0);
+  transition: all 0.3s ease;
+}
+
+/* Input Focus/Valid Underline */
+.input-container input[type="text"]:focus ~ .underline,
+.input-container input[type="text"]:valid ~ .underline {
+  transform: scaleX(1);
+}
+
+/* Output List */
+#output-list {
+  list-style-type: none;
+  border-radius: 5px;
+  padding: 20px 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  width: 440px;
+  justify-content: center;
+  margin: auto;
+  background-color: #ffffff;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Table List */
+.table-list {
+  border-radius: 5px;
+  margin-top: 20px;
+  list-style: none;
+  width: 100%;
+  font-size: 1.6rem;
+  padding: 0;
+  margin-right: 40px;
+  font-family: 'Open Sans', sans-serif;
+  color: #6c757d;
+}
+
+/* Table List Item */
+.table-list li {
+  padding: 10px;
+}
+
+/* Edit Button */
+.Edit-btn {
+  margin-left: 20px;
+  padding: 10px 20px;
+  background-color: #80deea;
+  color: #2d3436;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+/* Edit Button Hover */
+.Edit-btn:hover {
+  background-color: #00c4cc;
+  color: #ffffff;
+}
+
+/* Confirm Button */
+.Confirm-btn {
+  margin-left: 20px;
+  padding: 10px 20px;
+  background-color: #30cc00;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+/* Confirm Button Hover */
+.Confirm-btn:hover {
+  background-color: #73ff1c;
+}
+
+/* Delete Button */
+.Delete-btn {
+  padding: 10px 20px;
+  background-color: #ff3a1c;
+  color: #ffffff;
+  margin-left: 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+/* Delete Button Hover */
+.Delete-btn:hover {
+  background-color: #dd4f1c;
+}
+
+/* Dark Mode To-Do List */
+.dark-mode .to-do-list {
+  background: #455a64;
+  color: #dee2e6;
+}
+
+/* Dark Mode To-Do List Heading */
+.dark-mode .to-do-list .section-header h1 {
+  color: #17c4cc;
+}
+
+/* Dark Mode To-Do List Form */
+.dark-mode .to-do-list form {
+  background-color: #343a40;
+}
+
+/* Dark Mode To-Do List Input */
+.dark-mode .to-do-list form input[type="text"] {
+  color: #dee2e6;
+}
+
+/* Dark Mode To-Do List Label */
+.dark-mode .to-do-list form .label {
+  color: #6c757d;
+}
+
+/* Dark Mode To-Do List Input Focus/Valid Label */
+.dark-mode .to-do-list form input[type="text"]:focus ~ .label,
+.dark-mode .to-do-list form input[type="text"]:valid ~ .label {
+  color: #17c4cc;
+}
+
+/* Dark Mode To-Do List Underline */
+.dark-mode .to-do-list form .underline {
+  background-color: #17c4cc;
+}
+
+/* Dark Mode Output List */
+.dark-mode #output-list {
+  background-color: #343a40;
+  color: #dee2e6;
+}
+
+/* Dark Mode Table List */
+.dark-mode .table-list {
+  color: #6c757d;
+}
+
+/* Dark Mode Edit Button */
+.dark-mode .Edit-btn {
+  background-color: #6c757d;
+  color: #dee2e6;
+}
+
+/* Dark Mode Edit Button Hover */
+.dark-mode .Edit-btn:hover {
+  background-color: #17c4cc;
+  color: #212529;
+}
+
+/* Dark Mode Confirm Button */
+.dark-mode .Confirm-btn {
+  background-color: #17c4cc;
+}
+
+/* Dark Mode Confirm Button Hover */
+.dark-mode .Confirm-btn:hover {
+  background-color: #ffb107;
+}
+
+/* Dark Mode Delete Button */
+.dark-mode .Delete-btn {
+  background-color: #ffb107;
+}
+
+/* Dark Mode Delete Button Hover */
+.dark-mode .Delete-btn:hover {
+  background-color: #ff9f1c;
+}
+
+/* Media Query: To-Do List (max-width: 768px) */
+@media (max-width: 768px) {
+  .to-do-list form {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .input-container input[type="text"] {
+    font-size: 18px;
+  }
+
+  #output-list {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .table-list {
+    font-size: 1.4rem;
+  }
+
+  .button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .button .button__text {
+    transform: translateX(0);
+  }
+
+  .button .button__icon {
+    width: 100%;
+    transform: translateX(0);
+  }
+}
+
+/* Media Query: To-Do List (max-width: 520px) */
+@media (max-width: 520px) {
+  #output-list {
+    width: 100%;
+  }
+
+  .table-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .Edit-btn {
+    margin-right: 2px;
+  }
+
+  .Delete-btn {
+    margin: 3px;
+  }
+
+  .Confirm-btn {
+    margin-left: 2px;
+  }
+}
+
+/* Media Query: To-Do List (max-width: 480px) */
+@media (max-width: 480px) {
+  .to-do-list .section-header h1 {
+    font-size: 1.8em;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .input-container input[type="text"] {
+    font-size: 16px;
+  }
+
+  .table-list {
+    font-size: 1.2rem;
+  }
+
+  .button .button__text {
+    font-size: 14px;
+  }
+}
+
+/* Contact Section */
+.contact {
+  width: 100%;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #fdfdfd 0%, #eef2f3 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Contact Container */
+.contact-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Map Background */
+.map-background {
+  width: 48%;
+  height: 300px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Map Iframe */
+.map-background iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+}
+
+/* Contact Form */
+.contact-form {
+  width: 48%;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  color: #2d3436;
+}
+
+/* Contact Form Heading */
+.contact-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  color: #00c4cc;
+}
+
+/* Contact Form Label */
+.contact-form label {
+  font-size: 16px;
+  margin-bottom: 8px;
+  display: block;
+  font-weight: 600;
+  color: #6c757d;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Contact Form Inputs */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  border: 1px solid #b2bec4;
+  font-size: 14px;
+  resize: none;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #fdfdfd;
+  color: #2d3436;
+}
+
+/* Contact Form Button */
+.contact-form button {
+  padding: 12px 20px;
+  background-color: #00c4cc;
+  border: none;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+/* Contact Form Button Hover */
+.contact-form button:hover {
+  background-color: #ff9f1c;
+}
+
+/* Dark Mode Contact */
+.dark-mode .contact {
+  background: #374151;
+}
+
+/* Dark Mode Contact Form */
+.dark-mode .contact-form {
+  background-color: #343a40;
+  color: #dee2e6;
+}
+
+/* Dark Mode Contact Form Heading */
+.dark-mode .contact-form h2 {
+  color: #17c4cc;
+}
+
+/* Dark Mode Contact Form Label */
+.dark-mode .contact-form label {
+  color: #dee2e6;
+}
+
+/* Dark Mode Contact Form Inputs */
+.dark-mode .contact-form input,
+.dark-mode .contact-form textarea {
+  background-color: #2e353b;
+  border: 1px solid #6c757d;
+  color: #dee2e6;
+}
+
+/* Dark Mode Contact Form Button */
+.dark-mode .contact-form button {
+  background-color: #17c4cc;
+}
+
+/* Dark Mode Contact Form Button Hover */
+.dark-mode .contact-form button:hover {
+  background-color: #ffb107;
+}
+
+/* Media Query: Contact (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .contact-container {
+    flex-direction: column;
+  }
+
+  .map-background,
+  .contact-form {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+/* Media Query: Contact (max-width: 768px) */
+@media (max-width: 768px) {
+  .contact-form button {
+    width: 100%;
+  }
+}
+
+/* Media Query: Contact (max-width: 480px) */
+@media (max-width: 480px) {
+  .contact {
+    padding: 20px 10px;
+  }
+}
+
+/* Footer Section */
+.footer {
+  width: 100%;
+  background: linear-gradient(135deg, #fdfdfd 0%, #eef2f3 100%);
+  color: #2d3436;
+  padding: 20px 0;
+  text-align: center;
+}
+
+/* Footer Container */
+.footer-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+/* Footer Main */
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+/* Footer Up/Down */
+.up,
+.down {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+}
+
+/* Footer Cards */
+.card1,
+.card2,
+.card3,
+.card4 {
+  width: 90px;
+  height: 90px;
+  outline: none;
+  border: none;
+  background: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
+}
+
+/* Card Border Radius */
+.card1 {
+  border-radius: 90px 5px 5px 5px;
+}
+
+.card2 {
+  border-radius: 5px 90px 5px 5px;
+}
+
+.card3 {
+  border-radius: 5px 5px 5px 90px;
+}
+
+.card4 {
+  border-radius: 5px 5px 90px 5px;
+}
+
+/* Social Media Icons */
+.instagram {
+  margin-top: 1.5em;
+  margin-left: 1.2em;
+  fill: #d81b60;
+}
+
+.facebook {
+  margin-top: 1.5em;
+  margin-left: -0.9em;
+  fill: #00c4cc;
+}
+
+.whatsapp {
+  margin-top: -0.6em;
+  margin-left: 1.2em;
+  fill: #4caf50;
+}
+
+.gmail {
+  margin-top: -0.9em;
+  margin-left: -1.2em;
+  fill: #ff9f1c;
+}
+
+/* Card Hover Effects */
+.card1:hover {
+  cursor: pointer;
+  scale: 1.1;
+  background-color: #d81b60;
+}
+
+.card1:hover .instagram {
+  fill: #ffffff;
+}
+
+.card2:hover {
+  cursor: pointer;
+  scale: 1.1;
+  background-color: #00c4cc;
+}
+
+.card2:hover .facebook {
+  fill: #ffffff;
+}
+
+.card3:hover {
+  cursor: pointer;
+  scale: 1.1;
+  background-color: #4caf50;
+}
+
+.card3:hover .whatsapp {
+  fill: #ffffff;
+}
+
+.card4:hover {
+  cursor: pointer;
+  scale: 1.1;
+  background-color: #ff9f1c;
+}
+
+.card4:hover .gmail {
+  fill: #ffffff;
+}
+
+/* Footer Made By */
+.footer-madeby {
+  font-size: 14px;
+  margin-top: 20px;
+  color: #6c757d;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Footer Link */
+.footer-madeby a {
+  color: #00c4cc;
+  text-decoration: none;
+}
+
+/* Footer Link Hover */
+.footer-madeby a:hover {
+  text-decoration: underline;
+}
+
+/* Dark Mode Footer */
+.dark-mode .footer {
+  background: #455a64;
+  color: #dee2e6;
+}
+
+/* Dark Mode Footer Made By */
+.dark-mode .footer-madeby {
+  color: #dee2e6;
+}
+
+/* Dark Mode Footer Link */
+.dark-mode .footer-madeby a {
+  color: #17c4cc;
+}
+
+/* Dark Mode Social Media Icons */
+.dark-mode .instagram {
+  fill: #d81b60;
+}
+
+.dark-mode .facebook {
+  fill: #17c4cc;
+}
+
+.dark-mode .whatsapp {
+  fill: #4caf50;
+}
+
+.dark-mode .gmail {
+  fill: #ffb107;
+}
+
+/* Dark Mode Card Hover */
+.dark-mode .card2:hover {
+  background-color: #17c4cc;
+}
+
+.dark-mode .card4:hover {
+  background-color: #ffb107;
+}
+
+/* Media Query: Footer (max-width: 768px) */
+@media (max-width: 768px) {
+  .up,
+  .down {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .footer-madeby {
+    font-size: 12px;
+  }
+}
+
+
+
+        /* Navbar Animation */
+        .navbar {
+          transform: translateY(-100%);
+          animation: slideDown 0.5s ease forwards;
+      }
+      @keyframes slideDown {
+          to { transform: translateY(0); }
+      }
+
+      /* Hero Animation */
+      .hero .content h1, .hero .content p, .hero .content button {
+          opacity: 0;
+          animation: fadeIn 0.8s ease forwards;
+      }
+      .hero .content h1 { animation-delay: 0.2s; }
+      .hero .content p { animation-delay: 0.4s; }
+      .hero .content button { animation-delay: 0.6s; }
+      @keyframes fadeIn {
+          to { opacity: 1; }
+      }
+      .star {
+          position: absolute;
+          width: 5px;
+          height: 5px;
+          background-color: #fff;
+          border-radius: 50%;
+          opacity: 0;
+          animation: fall 2s linear infinite;
+          z-index: 10;
+      }
+      @keyframes fall {
+          0% { transform: translateY(-50px); opacity: 1; }
+          100% { transform: translateY(100vh); opacity: 0; }
+      }
+      .balloon {
+          position: absolute;
+          width: 30px;
+          height: 40px;
+          background-color: #ffd700;
+          border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+          opacity: 0;
+          animation: floatUp 3s ease-out forwards;
+          z-index: 10;
+      }
+      @keyframes floatUp {
+          0% { transform: translateY(50vh); opacity: 0.8; }
+          100% { transform: translateY(-50vh); opacity: 0; }
+      }
+
+      /* Section Animation Base */
+      .section-hidden {
+          opacity: 0;
+          transition: all 0.5s ease;
+      }
+      .section-visible {
+          opacity: 1;
+      }
+
+      /* About Animation */
+      .about .about-text {
+          transform: translateX(-50px);
+      }
+      .about .about-img {
+          transform: translateX(50px);
+      }
+      .about.section-visible .about-text,
+      .about.section-visible .about-img {
+          transform: translateX(0);
+      }
+
+      /* Prayer Times Animation */
+      .prayer-times .display-time {
+          transform: translateY(20px);
+      }
+      .prayer-times.section-visible .display-time {
+          transform: translateY(0);
+          animation: bounceIn 0.5s ease;
+      }
+      @keyframes bounceIn {
+          0% { transform: translateY(20px); }
+          50% { transform: translateY(-10px); }
+          100% { transform: translateY(0); }
+      }
+
+      /* Daily Advice Animation */
+      .daily-advice .advice-content p,
+      .daily-advice .advice-content img {
+          opacity: 0;
+      }
+      .daily-advice.section-visible .advice-content p {
+          animation: fadeIn 0.5s ease forwards;
+      }
+      .daily-advice.section-visible .advice-content img {
+          animation: fadeIn 0.5s ease 0.2s forwards;
+      }
+
+      /* Message to Friend Animation */
+      .message-to-friend .form-container {
+          transform: translateY(50px);
+      }
+      .message-to-friend.section-visible .form-container {
+          transform: translateY(0);
+      }
+
+      /* What Should You Do Animation */
+      .what-should-you-do .content-container img {
+          transform: scale(0.8);
+      }
+      .what-should-you-do.section-visible .content-container img {
+          transform: scale(1);
+          animation: zoomIn 0.5s ease;
+      }
+      @keyframes zoomIn {
+          from { transform: scale(0.8); }
+          to { transform: scale(1); }
+      }
+
+      /* To-Do List Animation */
+      .to-do-list form,
+      .to-do-list #output-list {
+          transform: rotate(-5deg);
+      }
+      .to-do-list.section-visible form,
+      .to-do-list.section-visible #output-list {
+          transform: rotate(0);
+      }
+
+      /* Contact Animation */
+      .contact .contact-form {
+          transform: translateX(-50px);
+      }
+      .contact .map-background {
+          transform: translateX(50px);
+      }
+      .contact.section-visible .contact-form,
+      .contact.section-visible .map-background {
+          transform: translateX(0);
+      }
+
+      /* Footer Animation */
+      .footer .footer-social button {
+          opacity: 0;
+      }
+      .footer.section-visible .card1 { animation: popIn 0.3s ease 0.1s forwards; }
+      .footer.section-visible .card2 { animation: popIn 0.3s ease 0.2s forwards; }
+      .footer.section-visible .card3 { animation: popIn 0.3s ease 0.3s forwards; }
+      .footer.section-visible .card4 { animation: popIn 0.3s ease 0.4s forwards; }
+      @keyframes popIn {
+          from { opacity: 0; transform: scale(0.5); }
+          to { opacity: 1; transform: scale(1); }
+      }
