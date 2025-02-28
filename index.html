@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ramadan Homepage</title>
+    <title data-en="Ramadan Homepage" data-ar="الصفحة الرئيسية لرمضان">Ramadan Homepage</title>
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- SweetAlert2 for Modals -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Custom Styles -->
     <link rel="stylesheet" href="./assets/img&js&css/css/styles.css">
-    <!-- Inline Animation Styles -->
+    <!-- Google Fonts for Arabic -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <!-- Loading Screen -->
     <div class="loader" id="loader">
         <div class="moon"></div>
-        <div class="loader-text" data-translate>Ramadan Mubarak! 🌙</div>
+        <div class="loader-text" data-en="Ramadan Mubarak! 🌙" data-ar="رمضان مبارك! 🌙">Ramadan Mubarak! 🌙</div>
         <div class="spinner">
             <i class="fas fa-star spin-star"></i>
         </div>
@@ -25,38 +26,39 @@
 
     <!-- Navigation Bar -->
     <nav class="navbar">
-        <div class="logo">Ramadan Kareem</div>
+        <div class="logo" data-en="Ramadan Kareem" data-ar="رمضان كريم">Ramadan Kareem</div>
         <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#prayer-times">Pray</a>
-            <a href="#what-should-you-do">Quran</a>
-            <a href="#contact">Contact</a>
+            <a href="#home" data-en="Home" data-ar="الرئيسية">Home</a>
+            <a href="#about" data-en="About" data-ar="عن رمضان">About</a>
+            <a href="#prayer-times" data-en="Pray" data-ar="الصلاة">Pray</a>
+            <a href="#what-should-you-do" data-en="Quran" data-ar="القرآن">Quran</a>
+            <a href="#contact" data-en="Contact" data-ar="اتصل بنا">Contact</a>
         </div>
         <div class="hamburger" onclick="toggleMenu()">
             <i class="fas fa-bars"></i>
         </div>
-        <div class="actions" id="darkModeToggle">
-            <i id="theme-icon" class="fa-solid fa-moon"></i> 
+        <div class="actions">
+            <i id="theme-icon" class="fa-solid fa-moon" onclick="toggleDarkMode()"></i>
+            <i id="lang-icon" class="fas fa-globe" onclick="toggleLanguage()"></i>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="content">
-            <h1>Welcome to Ramadan 2025!</h1>
-            <p id="user-greeting">Join us in celebrating this holy month of Ramadan. A time of reflection, spirituality, and community.</p>
-            <button onclick="showRamadan()">Happy 🎈</button>
+            <h1 data-en="Welcome to Ramadan 2025!" data-ar="مرحبًا برمضان 2025!">Welcome to Ramadan 2025!</h1>
+            <p id="user-greeting" data-en="Join us in celebrating this holy month of Ramadan. A time of reflection, spirituality, and community." data-ar="انضم إلينا في الاحتفال بهذا الشهر المقدس من رمضان. وقت للتأمل والروحانية والمجتمع.">Join us in celebrating this holy month of Ramadan...</p>
+            <button onclick="showRamadan()" data-en="Happy 🎈" data-ar="سعيد 🎈">Happy 🎈</button>
             <div id="balloonContainer"></div>
-                </div>
+        </div>
         <div class="sidebar">
             <div class="top-img"></div>
             <div id="timer" class="timer">
-                <p id="timer-label">Time until Ramadan starts:</p>
+                <p id="timer-label" data-en="Time until Ramadan starts:" data-ar="الوقت حتى بداية رمضان:">Time until Ramadan starts:</p>
                 <p id="countdown"></p>
             </div>
             <div id="ramadan-greeting" class="ramadan-greeting">
-                <p>Ramadan Kareem, <span id="user-name">Guest</span>! 🌙</p>
+                <p data-en="Ramadan Kareem, Guest! 🌙" data-ar="رمضان كريم، ضيف! 🌙">Ramadan Kareem, <span id="user-name">Guest</span>! 🌙</p>
             </div>
         </div>
     </section>
@@ -64,21 +66,21 @@
     <!-- Name Prompt Modal -->
     <div id="name-prompt" class="modal">
         <div class="modal-content">
-            <h2>Enter Your Name</h2>
-            <input type="text" id="user-name-input" placeholder="Your Name">
-            <button onclick="submitName()">Submit</button>
+            <h2 data-en="Enter Your Name" data-ar="أدخل اسمك">Enter Your Name</h2>
+            <input type="text" id="user-name-input" placeholder="Your Name" data-en="Your Name" data-ar="اسمك">
+            <button onclick="submitName()" data-en="Submit" data-ar="إرسال">Submit</button>
         </div>
     </div>
 
     <!-- About Section -->
     <section class="about section-hidden" id="about">
         <div class="about-text">
-            <h2>About Ramadan</h2>
-            <p>Ramadan is the ninth month of the Islamic calendar, observed by Muslims worldwide as a month of fasting, prayer, reflection, and community. It is a time for spiritual growth, and Muslims believe it is the month when the Quran was revealed to Prophet Muhammad (PBUH).</p>
-            <h3>Benefits of Ramadan</h3>
-            <p>Fasting during Ramadan helps to cleanse the body and soul. It teaches self-discipline, patience, and empathy for those less fortunate. It also promotes gratitude and humility, as Muslims reflect on their blessings.</p>
-            <h3>The Benefits of Dates</h3>
-            <p>Dates are a traditional food consumed during Ramadan, especially to break the fast. They provide an instant source of energy due to their natural sugars. Rich in fiber, vitamins, and minerals, dates are excellent for digestion and boosting health during Ramadan.</p>
+            <h2 data-en="About Ramadan" data-ar="عن رمضان">About Ramadan</h2>
+            <p data-en="Ramadan is the ninth month of the Islamic calendar, observed by Muslims worldwide as a month of fasting, prayer, reflection, and community. It is a time for spiritual growth, and Muslims believe it is the month when the Quran was revealed to Prophet Muhammad (PBUH)." data-ar="رمضان هو الشهر التاسع في التقويم الإسلامي، يحتفل به المسلمون في جميع أنحاء العالم كشهر للصيام والصلاة والتأمل والمجتمع. إنه وقت للنمو الروحاني، ويعتقد المسلمون أنه الشهر الذي أُوحي فيه القرآن للنبي محمد (صلى الله عليه وسلم).">Ramadan is the ninth month...</p>
+            <h3 data-en="Benefits of Ramadan" data-ar="فوائد رمضان">Benefits of Ramadan</h3>
+            <p data-en="Fasting during Ramadan helps to cleanse the body and soul. It teaches self-discipline, patience, and empathy for those less fortunate. It also promotes gratitude and humility, as Muslims reflect on their blessings." data-ar="الصيام خلال رمضان يساعد على تنظيف الجسم والروح. يعلم الانضباط الذاتي والصبر والتعاطف مع الأقل حظًا. كما أنه يعزز الامتنان والتواضع، حيث يتأمل المسلمون في نعمهم.">Fasting during Ramadan helps...</p>
+            <h3 data-en="The Benefits of Dates" data-ar="فوائد التمر">The Benefits of Dates</h3>
+            <p data-en="Dates are a traditional food consumed during Ramadan, especially to break the fast. They provide an instant source of energy due to their natural sugars. Rich in fiber, vitamins, and minerals, dates are excellent for digestion and boosting health during Ramadan." data-ar="التمر طعام تقليدي يُستهلك خلال رمضان، خاصة لكسر الصيام. يوفر مصدرًا فوريًا للطاقة بفضل السكريات الطبيعية فيه. غني بالألياف والفيتامينات والمعادن، التمر ممتاز للهضم وتعزيز الصحة خلال رمضان.">Dates are a traditional food...</p>
         </div>
         <div class="about-img">
             <img src="./assets/img&js&css/img/About.jpg" alt="Dates for Ramadan">
@@ -88,19 +90,19 @@
     <!-- Prayer Times Section -->
     <section class="prayer-times section-hidden" id="prayer-times">
         <div class="section-header">
-            <h2>Prayer Times for Ramadan</h2>
+            <h2 data-en="Prayer Times for Ramadan" data-ar="أوقات الصلاة لرمضان">Prayer Times for Ramadan</h2>
         </div>
         <div class="display-time">
             <div class="table-container">
                 <table class="prayer-table">
                     <thead>
                         <tr>
-                            <th>Date</th>
-                            <th>Fajr</th>
-                            <th>Dhuhr</th>
-                            <th>Asr</th>
-                            <th>Maghrib</th>
-                            <th>Isha</th>
+                            <th data-en="Date" data-ar="التاريخ">Date</th>
+                            <th data-en="Fajr" data-ar="الفجر">Fajr</th>
+                            <th data-en="Dhuhr" data-ar="الظهر">Dhuhr</th>
+                            <th data-en="Asr" data-ar="العصر">Asr</th>
+                            <th data-en="Maghrib" data-ar="المغرب">Maghrib</th>
+                            <th data-en="Isha" data-ar="العشاء">Isha</th>
                         </tr>
                     </thead>
                     <tbody id="table-body">
@@ -118,7 +120,7 @@
     <!-- Daily Advice Section -->
     <section class="daily-advice section-hidden" id="advice">
         <div class="section-header">
-            <h2>Daily Advice for Ramadan</h2>
+            <h2 data-en="Daily Advice for Ramadan" data-ar="نصائح يومية لرمضان">Daily Advice for Ramadan</h2>
         </div>
         <div class="advice-content">
             <p id="advice-text"></p>
@@ -129,13 +131,13 @@
     <!-- Message to Friend Section -->
     <section class="message-to-friend section-hidden" id="message-to-friend">
         <div class="section-header">
-            <h2>Send a Ramadan Message to Your Friend</h2>
+            <h2 data-en="Send a Ramadan Message to Your Friend" data-ar="أرسل رسالة رمضان إلى صديقك">Send a Ramadan Message to Your Friend</h2>
         </div>
         <div class="form-container">
             <form id="message-form">
-                <input type="text" id="your-name" placeholder="Your Name" required>
-                <input type="text" id="friend-name" placeholder="Friend's Name" required>
-                <button type="button" id="generate-message">Generate Ramadan Message</button>
+                <input type="text" id="your-name" data-en="Your Name" data-ar="اسمك" placeholder="Your Name" required>
+                <input type="text" id="friend-name" data-en="Friend's Name" data-ar="اسم صديقك" placeholder="Friend's Name" required>
+                <button type="button" id="generate-message" data-en="Generate Ramadan Message" data-ar="إنشاء رسالة رمضان">Generate Ramadan Message</button>
             </form>
         </div>
         <div id="generated-message">
@@ -146,7 +148,7 @@
     <!-- What Should You Do Section -->
     <section class="what-should-you-do section-hidden" id="what-should-you-do">
         <div class="section-header">
-            <h2>Quran</h2>
+            <h2 data-en="Quran" data-ar="القرآن">Quran</h2>
         </div>
         <div class="display-normal">
             <div class="content-container">
@@ -162,16 +164,16 @@
     <!-- To-Do List Section -->
     <section class="to-do-list section-hidden" id="to-do-list">
         <div class="section-header">
-            <h1>To-Do List</h1>
+            <h1 data-en="To-Do List" data-ar="قائمة المهام">To-Do List</h1>
         </div>
         <form id="task-form">
             <div class="input-container">
                 <input type="text" id="taskInput" required>
-                <label for="taskInput" class="label">Enter Task</label>
+                <label for="taskInput" class="label" data-en="Enter Task" data-ar="أدخل مهمة">Enter Task</label>
                 <div class="underline"></div>
             </div>
             <button type="submit" class="button">
-                <span class="button__text">Add Task</span>
+                <span class="button__text" data-en="Add Task" data-ar="إضافة مهمة" dir="rtl">إضافة مهمة</span>
                 <span class="button__icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg">
                         <line y2="19" y1="5" x2="12" x1="12"></line>
@@ -181,7 +183,7 @@
             </button>
         </form>
         <div id="output-list">
-            <h2>Your Tasks:</h2>
+            <h2 data-en="Your Tasks:" data-ar="مهامك:">Your Tasks:</h2>
         </div>
     </section>
 
@@ -189,15 +191,15 @@
     <section class="contact section-hidden" id="contact">
         <div class="contact-container">
             <div class="contact-form">
-                <h2>Contact Us</h2>
+                <h2 data-en="Contact Us" data-ar="اتصل بنا">Contact Us</h2>
                 <form id="contact-form">
-                    <label for="name">Your Name</label>
+                    <label for="name" data-en="Your Name" data-ar="اسمك">Your Name</label>
                     <input type="text" id="name" name="name" required>
-                    <label for="email">Your Email</label>
+                    <label for="email" data-en="Your Email" data-ar="بريدك الإلكتروني">Your Email</label>
                     <input type="email" id="email" name="email" required>
-                    <label for="message">Your Message</label>
+                    <label for="message" data-en="Your Message" data-ar="رسالتك">Your Message</label>
                     <textarea id="message" name="message" rows="5" required></textarea>
-                    <button type="submit">Send Message</button>
+                    <button type="submit" data-en="Send Message" data-ar="إرسال الرسالة">Send Message</button>
                 </form>
             </div>
             <div class="map-background">
@@ -206,46 +208,49 @@
         </div>
     </section>
 
-    <!-- Footer Section -->
-    <footer class="footer section-hidden">
-        <div class="footer-container">
-            <div class="footer-social">
-                <div class="main">
-                    <div class="up">
-                        <a href="https://www.instagram.com/mohamedemad.coder/"><button class="card1">
-                            <svg class="instagram" fill-rule="nonzero" height="30px" width="30px" viewBox="0,0,256,256" xmlns="http://www.w3.org/2000/svg">
-                                <g style="mix-blend-mode: normal" text-anchor="none" font-size="none" font-weight="none" font-family="none" stroke-dashoffset="0" stroke-dasharray="" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="1" stroke="none" fill-rule="nonzero">
-                                    <g transform="scale(8,8)">
-                                        <path d="M11.46875,5c-3.55078,0 -6.46875,2.91406 -6.46875,6.46875v9.0625c0,3.55078 2.91406,6.46875 6.46875,6.46875h9.0625c3.55078,0 6.46875,-2.91406 6.46875,-6.46875v-9.0625c0,-3.55078 -2.91406,-6.46875 -6.46875,-6.46875zM11.46875,7h9.0625c2.47266,0 4.46875,1.99609 4.46875,4.46875v9.0625c0,2.47266 -1.99609,4.46875 -4.46875,4.46875h-9.0625c-2.47266,0 -4.46875,-1.99609 -4.46875,-4.46875v-9.0625c0,-2.47266 1.99609,-4.46875 4.46875,-4.46875zM21.90625,9.1875c-0.50391,0 -0.90625,0.40234 -0.90625,0.90625c0,0.50391 0.40234,0.90625 0.90625,0.90625c0.50391,0 0.90625,-0.40234 0.90625,-0.90625c0,-0.50391 -0.40234,-0.90625 -0.90625,-0.90625zM16,10c-3.30078,0 -6,2.69922 -6,6c0,3.30078 2.69922,6 6,6c3.30078,0 6,-2.69922 6,-6c0,-3.30078 -2.69922,-6 -6,-6zM16,12c2.22266,0 4,1.77734 4,4c0,2.22266 -1.77734,4 -4,4c-2.22266,0 -4,-1.77734 -4,-4c0,-2.22266 1.77734,-4 4,-4z"></path>
-                                    </g>
+  <!-- Footer Section -->
+  <footer class="footer section-hidden">
+    <div class="footer-container">
+        <div class="footer-social">
+            <div class="main">
+                <div class="up">
+                    <a href="https://www.instagram.com/mohamedemad.coder/"><button class="card1">
+                        <svg class="instagram" fill-rule="nonzero" height="30px" width="30px" viewBox="0,0,256,256" xmlns="http://www.w3.org/2000/svg">
+                            <g style="mix-blend-mode: normal" text-anchor="none" font-size="none" font-weight="none" font-family="none" stroke-dashoffset="0" stroke-dasharray="" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="1" stroke="none" fill-rule="nonzero">
+                                <g transform="scale(8,8)">
+                                    <path d="M11.46875,5c-3.55078,0 -6.46875,2.91406 -6.46875,6.46875v9.0625c0,3.55078 2.91406,6.46875 6.46875,6.46875h9.0625c3.55078,0 6.46875,-2.91406 6.46875,-6.46875v-9.0625c0,-3.55078 -2.91406,-6.46875 -6.46875,-6.46875zM11.46875,7h9.0625c2.47266,0 4.46875,1.99609 4.46875,4.46875v9.0625c0,2.47266 -1.99609,4.46875 -4.46875,4.46875h-9.0625c-2.47266,0 -4.46875,-1.99609 -4.46875,-4.46875v-9.0625c0,-2.47266 1.99609,-4.46875 4.46875,-4.46875zM21.90625,9.1875c-0.50391,0 -0.90625,0.40234 -0.90625,0.90625c0,0.50391 0.40234,0.90625 0.90625,0.90625c0.50391,0 0.90625,-0.40234 0.90625,-0.90625c0,-0.50391 -0.40234,-0.90625 -0.90625,-0.90625zM16,10c-3.30078,0 -6,2.69922 -6,6c0,3.30078 2.69922,6 6,6c3.30078,0 6,-2.69922 6,-6c0,-3.30078 -2.69922,-6 -6,-6zM16,12c2.22266,0 4,1.77734 4,4c0,2.22266 -1.77734,4 -4,4c-2.22266,0 -4,-1.77734 -4,-4c0,-2.22266 1.77734,-4 4,-4z"></path>
                                 </g>
-                            </svg>
-                        </button></a>
-                        <a href="https://www.facebook.com/profile.php?id=100085030196021"><button class="card2">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" height="24" class="facebook" width="24">
-                                <path d="M9.19795 21.5H13.198V13.4901H16.8021L17.198 9.50977H13.198V7.5C13.198 6.94772 13.6457 6.5 14.198 6.5H17.198V2.5H14.198C11.4365 2.5 9.19795 4.73858 9.19795 7.5V9.50977H7.19795L6.80206 13.4901H9.19795V21.5Z"></path>
-                            </svg>
-                        </button></a>
-                    </div>
-                    <div class="down">
-                        <a href="https://wa.me/qr/6DJBLDJR5TTLP1"><button class="card3">
-                            <svg width="30" height="30" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="whatsapp">
-                                <path d="M19.001 4.908A9.817 9.817 0 0 0 11.992 2C6.534 2 2.085 6.448 2.08 11.908c0 1.748.458 3.45 1.321 4.956L2 22l5.255-1.377a9.916 9.916 0 0 0 4.737 1.206h.005c5.46 0 9.908-4.448 9.913-9.913A9.872 9.872 0 0 0 19 4.908h.001ZM11.992 20.15A8.216 8.216 0 0 1 7.797 19l-.3-.18-3.117.818.833-3.041-.196-.314a8.2 8.2 0 0 1-1.258-4.381c0-4.533 3.696-8.23 8.239-8.23a8.2 8.2 0 0 1 5.825 2.413 8.196 8.196 0 0 1 2.41 5.825c-.006 4.55-3.702 8.24-8.24 8.24Zm4.52-6.167c-.247-.124-1.463-.723-1.692-.808-.228-.08-.394-.123-.556.124-.166.246-.641.808-.784.969-.143.166-.29.185-.537.062-.247-.125-1.045-.385-1.99-1.23-.738-.657-1.232-1.47-1.38-1.716-.142-.247-.013-.38.11-.504.11-.11.247-.29.37-.432.126-.143.167-.248.248-.413.082-.167.043-.31-.018-.433-.063-.124-.557-1.345-.765-1.838-.2-.486-.404-.419-.557-.425-.142-.009-.309-.009-.475-.009a.911.911 0 0 0-.661.31c-.228.247-.864.845-.864 2.067 0 1.22.888 2.395 1.013 2.56.122.167 1.742 2.666 4.229 3.74.587.257 1.05.408 1.41.523.595.19 1.13.162 1.558.1.475-.072 1.464-.6 1.673-1.178.205-.58.205-1.075.142-1.18-.061-.104-.227-.165-.475-.29Z"></path>
-                            </svg>
-                        </button></a>
-                        <a href="mailto:mohamedemad.front@gmail.com"><button class="card4">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" height="24" class="gmail" width="24">
-                                <path d="M6 12C6 15.3137 8.68629 18 12 18C14.6124 18 16.8349 16.3304 17.6586 14H12V10H21.8047V14H21.8C20.8734 18.5645 16.8379 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C15.445 2 18.4831 3.742 20.2815 6.39318L17.0039 8.68815C15.9296 7.06812 14.0895 6 12 6C8.68629 6 6 8.68629 6 12Z"></path>
-                            </svg>
-                        </button></a>
-                    </div>
+                            </g>
+                        </svg>
+                    </button></a>
+                    <a href="https://www.facebook.com/profile.php?id=100085030196021"><button class="card2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" height="24" class="facebook" width="24">
+                            <path d="M9.19795 21.5H13.198V13.4901H16.8021L17.198 9.50977H13.198V7.5C13.198 6.94772 13.6457 6.5 14.198 6.5H17.198V2.5H14.198C11.4365 2.5 9.19795 4.73858 9.19795 7.5V9.50977H7.19795L6.80206 13.4901H9.19795V21.5Z"></path>
+                        </svg>
+                    </button></a>
+                </div>
+                <div class="down">
+                    <a href="https://wa.me/qr/6DJBLDJR5TTLP1"><button class="card3">
+                        <svg width="30" height="30" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="whatsapp">
+                            <path d="M19.001 4.908A9.817 9.817 0 0 0 11.992 2C6.534 2 2.085 6.448 2.08 11.908c0 1.748.458 3.45 1.321 4.956L2 22l5.255-1.377a9.916 9.916 0 0 0 4.737 1.206h.005c5.46 0 9.908-4.448 9.913-9.913A9.872 9.872 0 0 0 19 4.908h.001ZM11.992 20.15A8.216 8.216 0 0 1 7.797 19l-.3-.18-3.117.818.833-3.041-.196-.314a8.2 8.2 0 0 1-1.258-4.381c0-4.533 3.696-8.23 8.239-8.23a8.2 8.2 0 0 1 5.825 2.413 8.196 8.196 0 0 1 2.41 5.825c-.006 4.55-3.702 8.24-8.24 8.24Zm4.52-6.167c-.247-.124-1.463-.723-1.692-.808-.228-.08-.394-.123-.556.124-.166.246-.641.808-.784.969-.143.166-.29.185-.537.062-.247-.125-1.045-.385-1.99-1.23-.738-.657-1.232-1.47-1.38-1.716-.142-.247-.013-.38.11-.504.11-.11.247-.29.37-.432.126-.143.167-.248.248-.413.082-.167.043-.31-.018-.433-.063-.124-.557-1.345-.765-1.838-.2-.486-.404-.419-.557-.425-.142-.009-.309-.009-.475-.009a.911.911 0 0 0-.661.31c-.228.247-.864.845-.864 2.067 0 1.22.888 2.395 1.013 2.56.122.167 1.742 2.666 4.229 3.74.587.257 1.05.408 1.41.523.595.19 1.13.162 1.558.1.475-.072 1.464-.6 1.673-1.178.205-.58.205-1.075.142-1.18-.061-.104-.227-.165-.475-.29Z"></path>
+                        </svg>
+                    </button></a>
+                    <a href="mailto:mohamedemad.front@gmail.com"><button class="card4">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" height="24" class="gmail" width="24">
+                            <path d="M6 12C6 15.3137 8.68629 18 12 18C14.6124 18 16.8349 16.3304 17.6586 14H12V10H21.8047V14H21.8C20.8734 18.5645 16.8379 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C15.445 2 18.4831 3.742 20.2815 6.39318L17.0039 8.68815C15.9296 7.06812 14.0895 6 12 6C8.68629 6 6 8.68629 6 12Z"></path>
+                        </svg>
+                    </button></a>
                 </div>
             </div>
-            <div class="footer-madeby">
-                <p>© 2025 Ramadan Website made by <a href="https://github.com/mohamedemad-10">Mohamed Emad</a></p>
-            </div>
         </div>
-    </footer>
+        <div class="footer-madeby">
+            <!-- <p>© 2025 Ramadan Website made by <a href="https://github.com/mohamedemad-10">Mohamed Emad</a></p> -->
+            <p data-en="© 2025 Ramadan Website made by " data-ar="© 2025 موقع رمضان من إعداد ">
+                © 2025 Ramadan Website made by <a href="https://github.com/mohamedemad-10">Mohamed Emad</a>
+            </p>
+                </div>
+    </div>
+</footer>
 
     <!-- Custom Script -->
     <script src="./assets/img&js&css/js/script.js"></script>
