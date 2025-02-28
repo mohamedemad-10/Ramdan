@@ -9,6 +9,36 @@ window.addEventListener('load', function() {
     }, 2000);
 });
 
+
+
+// Handle modal and local storage on page load
+window.onload = function() {
+    const storedName = localStorage.getItem('userName');
+    const promptElement = document.getElementById('name-prompt');
+    const greetingElement = document.getElementById('user-greeting');
+    const nameElement = document.getElementById('user-name');
+
+    if (storedName) {
+        // If name exists in local storage, update UI and hide modal
+        if (greetingElement) {
+            greetingElement.textContent = `Ramadan Kareem, ${storedName}! May this blessed month bring you peace, joy, and spiritual growth.🙏`;
+        }
+        if (nameElement) {
+            nameElement.textContent = storedName;
+        }
+        if (promptElement) {
+            promptElement.style.display = 'none';
+        }
+    } else {
+        // If no name in local storage, show modal
+        if (promptElement) {
+            promptElement.style.display = 'flex'; // Show modal on load
+        } else {
+            console.error("Modal with ID 'name-prompt' not found");
+        }
+    }
+};
+
 // Language Setting (English as Default)
 let currentLang = 'en';
 
@@ -166,28 +196,6 @@ function showRamadan() {
     setTimeout(() => balloon.remove(), 3000);
 }
 
-// Name Prompt
-window.onload = function() {
-    const storedName = localStorage.getItem('userName');
-    if (storedName) {
-        document.getElementById('user-name').textContent = storedName;
-        document.getElementById('name-prompt').style.display = 'none';
-    } else {
-        document.getElementById('name-prompt').style.display = 'flex';
-    }
-};
-
-function submitName() {
-    const userName = document.getElementById('user-name-input').value.trim();
-    if (userName) {
-        localStorage.setItem('userName', userName);
-        document.getElementById('user-name').textContent = userName;
-        toggleLanguage();
-        document.getElementById('name-prompt').style.display = 'none';
-    } else {
-        alert(currentLang === 'ar' ? "يرجى إدخال اسمك!" : "Please enter your name!");
-    }
-}
 
 // Intersection Observer
 const sections = document.querySelectorAll(".section-hidden");
