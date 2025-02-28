@@ -10,19 +10,6 @@ window.addEventListener('load', function() {
 });
 
 
-
-// Handle modal and local storage on page load
-// Hide Loader When Page Loads
-window.addEventListener('load', function() {
-    const loader = document.getElementById('loader');
-    setTimeout(() => {
-        loader.classList.add('hidden');
-        setTimeout(() => {
-            loader.style.display = 'none';
-        }, 700);
-    }, 2000);
-});
-
 // Handle modal and local storage on page load
 window.onload = function() {
     const storedName = localStorage.getItem('userName');
