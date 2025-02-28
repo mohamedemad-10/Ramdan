@@ -450,79 +450,73 @@ body[lang="ar"] textarea{
 }
 
 /* Modal Background */
-#name-prompt {
-  display: none;
-  position: fixed;
+/* Style for the modal container */
+.modal {
+  display: flex; /* Default display, matches your JS */
+  position: fixed; /* Stays in place even when scrolling */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
-  justify-content: center;
-  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent gray background */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  z-index: 1000; /* Ensures it appears above other content */
 }
 
-/* Modal Content */
+/* Style for the modal content box */
 .modal-content {
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: 300px;
-  text-align: center;
+  background-color: #ffffff; /* White background */
+  padding: 20px; /* Inner spacing */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  width: 300px; /* Fixed width */
+  text-align: center; /* Center text inside */
 }
 
-/* Modal Heading */
+/* Style for the heading */
 .modal-content h2 {
-  margin: 0 0 15px 0;
-  font-family: Arial, sans-serif;
-  color: #333;
-  font-size: 24px;
+  margin: 0 0 15px 0; /* Spacing below heading */
+  font-family: Arial, sans-serif; /* Clean font */
+  color: #333; /* Dark gray text */
 }
 
-/* Modal Input */
+/* Style for the input field */
 #user-name-input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-  box-sizing: border-box;
+  width: 100%; /* Full width of container */
+  padding: 10px; /* Inner spacing */
+  margin-bottom: 15px; /* Space below input */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 4px; /* Slightly rounded corners */
+  font-size: 16px; /* Readable text size */
+  box-sizing: border-box; /* Includes padding in width */
 }
 
-/* Modal Input Placeholder */
+/* Style for the input placeholder */
 #user-name-input::placeholder {
-  color: #999;
+  color: #999; /* Light gray placeholder text */
 }
 
-/* Modal Input Focus */
-#user-name-input:focus {
-  border-color: #007BFF;
-  outline: none;
-}
-
-/* Modal Button */
+/* Style for the submit button */
 .modal-content button {
-  background-color: #007BFF;
-  color: #ffffff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  background-color: #4CAF50; /* Green background */
+  color: white; /* White text */
+  padding: 10px 20px; /* Vertical and horizontal padding */
+  border: none; /* No border */
+  border-radius: 4px; /* Rounded corners */
+  font-size: 16px; /* Readable text size */
+  cursor: pointer; /* Hand cursor on hover */
+  transition: background-color 0.3s; /* Smooth color change on hover */
 }
 
-/* Modal Button Hover */
+/* Hover effect for the button */
 .modal-content button:hover {
-  background-color: #0056b3;
+  background-color: #45a049; /* Slightly darker green on hover */
 }
 
-/* Modal Button Active */
-.modal-content button:active {
-  background-color: #004085;
+/* Ensure the modal is hidden when display is set to 'none' by JS */
+.modal[style*="display: none"] {
+  display: none !important; /* Ensures JS control works */
 }
 
 /* Dark Mode Hero */
