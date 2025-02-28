@@ -109,6 +109,79 @@ body.dark-mode {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;700&display=swap');
+
+/* Default English Styles */
+body {
+    font-family: 'Lato', sans-serif;
+    direction: ltr;
+    text-align: left;
+}
+
+/* Arabic Styles */
+body[lang="ar"] {
+    font-family: 'Noto Naskh Arabic', sans-serif;
+    direction: rtl;
+    text-align: right;
+}
+
+/* Navbar Adjustments */
+body[lang="ar"] .navbar .nav-links {
+    flex-direction: row-reverse;
+}
+
+body[lang="ar"] .navbar .nav-links a {
+    font-family: 'Noto Naskh Arabic', sans-serif;
+}
+
+/* Section Adjustments */
+body[lang="ar"] .hero .content,
+body[lang="ar"] .about-text,
+body[lang="ar"] .prayer-times,
+body[lang="ar"] .daily-advice,
+body[lang="ar"] .message-to-friend,
+body[lang="ar"] .what-should-you-do,
+body[lang="ar"] .to-do-list,
+body[lang="ar"] .contact-container {
+    text-align: right;
+}
+
+/* Table Adjustments */
+body[lang="ar"] .prayer-table th,
+body[lang="ar"] .prayer-table td {
+    text-align: right;
+}
+
+/* Footer Adjustments */
+body[lang="ar"] .footer-container {
+    direction: rtl;
+}
+
+/* Input and Button Adjustments */
+body[lang="ar"] input,
+body[lang="ar"] textarea{ 
+  font-family: 'Noto Naskh Arabic', sans-serif;
+}
+
+/* Existing Navbar Styles (unchanged except for font) */
+.navbar {
+    width: 100%;
+    height: 80px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 111;
+    padding: 0 20px;
+    transition: all 0.3s ease;
+}
+
+/* Add your existing CSS here */
+
 /* Navbar Styles */
 .navbar {
   width: 100%;
@@ -130,12 +203,6 @@ body.dark-mode {
   font-weight: 700;
   color: #00c4cc;
   transition: all 0.3s ease;
-}
-
-.navbar.fixed {
-    position: fixed;
-    background-color: #fff; /* Maintain background when fixed */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: shadow for fixed state */
 }
 
 /* Navbar Logo Hover */
@@ -370,6 +437,7 @@ body.dark-mode {
   width: 50px;
   height: 70px;
   background-color: red;
+  color: red;
   border-radius: 50%;
   animation: float 3s ease-in-out infinite;
   display: none; /* Hidden by default */
@@ -1728,6 +1796,8 @@ body.dark-mode {
 .dark-mode .Delete-btn:hover {
   background-color: #ff9f1c;
 }
+
+
 
 /* Media Query: To-Do List (max-width: 768px) */
 @media (max-width: 768px) {
