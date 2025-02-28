@@ -510,8 +510,8 @@ body[lang="ar"] textarea{
 }
 
 /* Hover effect for the button */
-.modal-content button:hover {
-  background-color: #45a049; /* Slightly darker green on hover */
+.modal-content button{
+  background-color: #00c4cc; /* Slightly darker green on hover */
 }
 
 /* Ensure the modal is hidden when display is set to 'none' by JS */
