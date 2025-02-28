@@ -12,6 +12,18 @@ window.addEventListener('load', function() {
 
 
 // Handle modal and local storage on page load
+// Hide Loader When Page Loads
+window.addEventListener('load', function() {
+    const loader = document.getElementById('loader');
+    setTimeout(() => {
+        loader.classList.add('hidden');
+        setTimeout(() => {
+            loader.style.display = 'none';
+        }, 700);
+    }, 2000);
+});
+
+// Handle modal and local storage on page load
 window.onload = function() {
     const storedName = localStorage.getItem('userName');
     const promptElement = document.getElementById('name-prompt');
@@ -39,6 +51,44 @@ window.onload = function() {
     }
 };
 
+// Function to submit name and store in local storage
+function submitName() {
+    const userNameInput = document.getElementById('user-name-input');
+    const promptElement = document.getElementById('name-prompt');
+    const greetingElement = document.getElementById('user-greeting');
+    const nameElement = document.getElementById('user-name');
+
+    // Check if elements exist
+    if (!userNameInput) {
+        console.error("Input with ID 'user-name-input' not found");
+        return;
+    }
+    if (!promptElement) {
+        console.error("Modal with ID 'name-prompt' not found");
+        return;
+    }
+
+    const userName = userNameInput.value.trim();
+
+    if (userName !== "") {
+        // Store name in local storage
+        localStorage.setItem('userName', userName);
+
+        // Update UI with the entered name
+        if (greetingElement) {
+            greetingElement.textContent = `Ramadan Kareem, ${userName}! May this blessed month bring you peace, joy, and spiritual growth.🙏`;
+        }
+        if (nameElement) {
+            nameElement.textContent = userName;
+        }
+
+        // Hide the modal
+        promptElement.style.display = 'none';
+        console.log("Name saved to local storage and modal hidden");
+    } else {
+        alert("Please enter your name!");
+    }
+}
 // Language Setting (English as Default)
 let currentLang = 'en';
 
